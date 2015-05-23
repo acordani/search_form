@@ -142,6 +142,7 @@ def new
    @categories = Book.uniq.pluck(:category)
 end
 ```
+Pluck returns an Array of attribute values type-casted to match the plucked column names, if they can be deduced. 
 
 Create a method called "search_books" and inside, the respective queries to the database
 ```
