@@ -30,10 +30,10 @@ def index
     @books = Book.all
 end
 ```
-
+Pour une recherche insensible à a la casse mettre un I devant Like
 ```
  def index
-    @books = Book.where("name LIKE ?","%#{params[:search]}%")
+    @books = Book.where("name ILIKE ?","%#{params[:search]}%")
   end
   ```
   Transfer all the database logic to the model by creating a class method
@@ -150,7 +150,7 @@ def search_books
    
    books = Book.all
    
-   books = books.where("name like ?", "%#{keywords}%") if keywords.present?
+   books = books.where("name ilike ?", "%#{keywords}%") if keywords.present?
    books = books.where("category like ?", category) if category.present?
    books = books.where("price >= ?", min_price) if min_price.present?
    books = books.where("price <= ?", max_price) if max_price.present?
