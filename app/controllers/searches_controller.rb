@@ -2,12 +2,12 @@ class SearchesController < ApplicationController
 
   def new
     @search = Search.new
-    @categories = Book.uniq.pluck(:category)
+    # @categories = Book.uniq.pluck(:category)
   end
 
   def create
     @search = Search.create(search_params)
-    redirect_to search
+    redirect_to @search
   end
 
   def show
